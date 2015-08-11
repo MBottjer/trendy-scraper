@@ -70,7 +70,8 @@ def ScrapeRange(keyword, startmonth, startyear, endmonth, endyear):
             try:
                 if files[i][-5] == ")":
                     oldname = path+'/'+files[i]
-                    newname = path+'/report'+files[i][-6]+'.csv'
+                    no = oldname.split('(')[1].split(')')[0]
+                    newname = path+'/report'+no+'.csv'
                     os.rename(oldname,newname)
             except OSError:
                 pass
